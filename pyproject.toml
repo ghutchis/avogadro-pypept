@@ -1,0 +1,37 @@
+[project]
+name = "avogadro-pypept"
+version = "0.1.0"
+description = "Build peptides in Avogadro 2 using pyPept"
+authors = [{name = "Geoff Hutchison", email = "geoff.hutchison@gmail.com"},
+{name ="Dhruv J", email = "dhruvjariwala2003@gmail.com"}]
+license = "BSD-3-Clause"
+dependencies = [
+    "pyPept @ git+https://github.com/Boehringer-Ingelheim/pyPept.git",
+]
+requires-python = ">= 3.11"
+
+[project.scripts]
+avogadro-pypept = "avogadro_pypept:main"
+
+[build-system]
+build-backend = "uv_build"
+requires = ["uv_build>=0.10.2,<0.11.0"]
+
+[tool.avogadro]
+minimum-avogadro-version = "1.103"
+
+[[tool.avogadro.menu-commands]]
+identifier = "pypept"
+menu = "Build"
+submenu = "Insert"
+item = "Peptide (pyPept)…"
+user-options = "src/avogadro_pypept/pypept-options.json"
+
+[tool.pixi.workspace]
+channels = ["conda-forge"]
+platforms = ["win-64", "linux-64", "linux-aarch64", "osx-64", "osx-arm64"]
+
+[tool.pixi.pypi-dependencies]
+avogadro-pypept = { path = ".", editable = true }
+
+[tool.pixi.tasks]

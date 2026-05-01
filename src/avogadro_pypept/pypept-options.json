@@ -1,0 +1,5 @@
+{
+    "format": {"type": "stringList", "label": "Sequence Format", "default": 0, "values": ["BILN", "HELM", "FASTA"]},
+    "sequence": {"type": "string", "label": "Peptide Sequence", "default": "ac-D-T-H-F-E-I-A-am"},
+    "secondary_structure": {"type": "stringList", "label": "Secondary Structure", "default": 0, "values": ["Predict", "Coil", "Helix", "Sheet"]}
+}
